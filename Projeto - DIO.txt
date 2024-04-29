@@ -1,0 +1,42 @@
+# Função para adicionar um novo contato
+def adicionar_contato(contatos, nome, telefone, endereco):
+    contatos[nome] = {'Telefone': telefone, 'Endereço': endereco}
+    print("Contato adicionado com sucesso!")
+
+# Função para exibir todos os contatos
+def exibir_contatos(contatos):
+    if not contatos:
+        print("Nenhum contato encontrado.")
+    else:
+        print("Lista de Contatos:")
+        for nome, info in contatos.items():
+            print("Nome:", nome)
+            print("Telefone:", info['Telefone'])
+            print("Endereço:", info['Endereço'])
+            print("--------------------")
+
+# Função principal
+def main():
+    contatos = {}
+    
+    while True:
+        print("\n1. Adicionar contato")
+        print("2. Exibir contatos")
+        print("3. Sair")
+        escolha = input("Escolha uma opção: ")
+
+        if escolha == '1':
+            nome = input("Digite o nome completo: ")
+            telefone = input("Digite o telefone: ")
+            endereco = input("Digite o endereço: ")
+            adicionar_contato(contatos, nome, telefone, endereco)
+        elif escolha == '2':
+            exibir_contatos(contatos)
+        elif escolha == '3':
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida!")
+
+if __name__ == "__main__":
+    main()
